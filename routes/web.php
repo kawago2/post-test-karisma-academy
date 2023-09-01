@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +19,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('beranda');
 });
 
-Route::get('/template', function () {
-    return view('template');
+Route::middleware(['auth', 'status'])->group(function () {
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('post', PostController::class);
+    Route::resource('produk', ProdukController::class);
+    Route::resource('user', UserController::class);
 });
+
+Route::get('beranda', [BerandaController::class, 'index']);
+Route::get('beranda/detail/{id}', [BerandaController::class, 'detail']);
 
 Auth::routes();
 
