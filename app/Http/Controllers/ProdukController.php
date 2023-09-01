@@ -32,10 +32,10 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'namaProduk' => 'required',
+            'nama_produk' => 'required',
             'harga' => 'required',
-            'descProduk' => 'required',
-            'kategori_id' => 'required'
+            'desc_produk' => 'required',
+            'kategori_id' => 'required',
         ]);
 
         $validator['foto'] = $request->file('foto')->store('img');
@@ -69,9 +69,9 @@ class ProdukController extends Controller
         $data = Produk::find($id);
 
         $validator = $request->validate([
-            'namaProduk' => 'required',
+            'nama_produk' => 'required',
             'harga' => 'required',
-            'descProduk' => 'required',
+            'desc_produk' => 'required',
             'kategori_id' => 'required'
         ]);
 

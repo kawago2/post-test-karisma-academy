@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Wes Makmur - Post</title>
+@endsection
 @section('main')
     <h1>Post</h1>
     <a href="{{ route('post.create') }}" class="btn btn-primary">Tambah Data</a>
@@ -19,8 +22,8 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $item->judul }}</td>
                 <td>{{ $item->isi }}</td>
-                <td>{{ $item->tanggalDibuat }}</td>
-                <td>{{ $item->kategori->namaKategori }}</td>
+                <td>{{ $item->tanggal_buat }}</td>
+                <td>{{ $item->kategori->nama_kategori }}</td>
                 <td>
                     <a href="{{ route('post.edit', $item->id) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('post.destroy', $item->id) }}" method="post">

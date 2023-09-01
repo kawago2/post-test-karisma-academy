@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Wes Makmur - Post</title>
+@endsection
 @section('main')
     <h1>Tambah Post</h1>
     <form action="{{ route('post.store') }}" method="POST">
@@ -18,7 +21,7 @@
             <select class="form-control" name="kategori_id">
                 <option>Pilih Kategori</option>
                 @foreach ($kategori as $item)
-                    <option value="{{ $item->id }}">{{ $item->namaKategori }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                 @endforeach
 
             </select>

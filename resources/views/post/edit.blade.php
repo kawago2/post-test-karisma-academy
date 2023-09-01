@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Wes Makmur - Post</title>
+@endsection
 @section('main')
     <h1>Edit Post</h1>
     <form action="{{ route('post.update', $data->id) }}" method="POST">
@@ -19,7 +22,7 @@
             <select class="form-control" name="kategori_id">
                 <option>Pilih Kategori</option>
                 @foreach ($kategori as $item)
-                    <option value="{{ $item->id }}" @selected($item->id == $data->kategori_id)>{{ $item->namaKategori }}</option>
+                    <option value="{{ $item->id }}" @selected($item->id == $data->kategori_id)>{{ $item->nama_kategori }}</option>
                 @endforeach
 
             </select>

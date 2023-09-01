@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+<title>Wes Makmur - User</title>
+@endsection
 @section('main')
     <h1>User</h1>
     <table class="table mt-3">
